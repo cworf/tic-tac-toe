@@ -12,19 +12,22 @@
   <body>
     <h1>Tic-Tac-Toe?</h1>
     <div class="row">
-      <div class="col-sm-4 box" id="1a"></div>
-      <div class="col-sm-4 box" id="1b"></div>
-      <div class="col-sm-4 box" id="1c"></div>
+      <div class="col-sm-4 box" data-row="0" data-index="0"></div>
+      <div class="col-sm-4 box" data-row="0" data-index="1"></div>
+      <div class="col-sm-4 box" data-row="0" data-index="2"></div>
     </div>
     <div class="row">
-      <div class="col-sm-4 box" id="2a"></div>
-      <div class="col-sm-4 box" id="2b"></div>
-      <div class="col-sm-4 box" id="2c"></div>
+      <div class="col-sm-4 box" data-row="1" data-index="0"></div>
+      <div class="col-sm-4 box" data-row="1" data-index="1"></div>
+      <div class="col-sm-4 box" data-row="1" data-index="2"></div>
     </div>
     <div class="row">
-      <div class="col-sm-4 box" id="3a"></div>
-      <div class="col-sm-4 box" id="3b"></div>
-      <div class="col-sm-4 box" id="3c"></div>
+      <div class="col-sm-4 box" data-row="2" data-index="0"></div>
+      <div class="col-sm-4 box" data-row="2" data-index="1"></div>
+      <div class="col-sm-4 box" data-row="2" data-index="2"></div>
     </div>
+    <div class="winner">
+    </div>
+    <button id="clear" type="button" class="btn btn-warning">Reset Game</button>
   </body>
 </html>

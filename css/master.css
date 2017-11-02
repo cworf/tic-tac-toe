@@ -29,3 +29,35 @@ body {
 h1 {
     color: #00cbf9;
 }
+
+.winner {
+    position: absolute;
+    font-family: 'Rock Salt', cursive;
+    color: green;
+    font-size: 0;
+    transition: all .5s cubic-bezier(0.71, -0.1, 0.51, 4.69);
+}
+
+.winner.active {
+    font-size: 160px;
+}
+.btn {
+    text-align: center;
+    max-width: 0;
+    transition: all 1s ease;
+    padding: 0;
+    max-height: 0;
+    border: 0;
+    position: absolute;
+    top: 65%;
+    font-size: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: rotate(-1080deg);
+}
+.btn.active {
+    max-width: 287px;
+    max-height: 78px;
+    padding: 0.5rem 0.75rem;
+    transform: rotate(0deg);
+}

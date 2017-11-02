@@ -1,21 +1,69 @@
-var row1 = ["", "", ""];
-var row2 = ["", "", ""];
-var row3 = ["", "", ""];
+var gameRun = true;
+var matrix = [[null, null, null],
+              [null, null, null],
+              [null, null, null]]
 
-var col1 = ["", "",""];
-var col2 = ["", "", ""];
-var col3 = ["", "", ""];
+function check() {
+  var xTester = new RegExp('xxx'),
+      oTester = new RegExp('ooo');
+  var diagUp = matrix[0][2] + matrix[1][1] + matrix[2][0];
+  for (var x = 0; x < matrix.length; x++) {
+    var rowStr = matrix[x].join("");
+    var col1Str = col1Str += matrix[x][0];
+    var col2Str = col2Str += matrix[x][1];
+    var col3Str = col3Str += matrix[x][2];
+    var diagDown = diagDown += matrix[x][x];
+
+    if (xTester.test(rowStr) || xTester.test(diagDown) || xTester.test(diagUp)) {
+      winner("X");
+      break;
+    } else if (oTester.test(rowStr) || oTester.test(diagDown) || oTester.test(diagUp)) {
+      winner("O");
+      break;
+    } else if (true) {
+
+    }
+  }
+  if (xTester.test(col1Str) || xTester.test(col2Str) || xTester.test(col3Str)) {
+    winner("X");
+  } else if (oTester.test(col1Str) || oTester.test(col2Str) || oTester.test(col3Str)) {
+    winner("O");
+  }
+}
+function reset() {
+  matrix = [[null, null, null],
+            [null, null, null],
+            [null, null, null]];
+  $('.box').each(function(){
+    $(this).text("");
+  })
+  $('.btn').removeClass('active');
+  $('.winner').removeClass('active');
+  gameRun = true;
+}
+function winner(winner){
+  gameRun = false;
+  $('.winner').text(winner + " Wins!!").addClass('active');
+  $('.btn').addClass('active');
+}
 
 $(function(){
-  var nextChar = "x";
+  var thisChar = "x";
   $('.box').click(function() {
-    if ($(this).text() === "") {
-      $(this).text(nextChar);
-      if (nextChar === "x") {
-        nextChar = "o"
+    if ($(this).text() === "" && gameRun === true) {
+      $(this).text(thisChar);//add character to clicked box
+      var row = parseInt($(this).attr('data-row')); // place character in matrix
+      var col = parseInt($(this).attr('data-index'));
+      matrix[row][col] = thisChar;
+      if (thisChar === "x") { //swap character
+        thisChar = "o"
       } else {
-        nextChar = "x"
+        thisChar = "x"
       }
+      setTimeout(check, 5);//check to see if winner
     }
+  });
+  $("#clear").click(function(){
+    reset();
   });
 });
