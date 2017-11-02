@@ -1,0 +1,26 @@
+body {
+    background: #000;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    background: #fff;
+    width: 540px;
+}
+
+.box {
+    height: 180px;
+    box-shadow: inset 0 0 5px;
+    transition: all .2s ease;
+}
+
+.box:hover {
+    box-shadow: inset 0 0 35px 11px;
+}
+h1 {
+    color: #00cbf9;
+}
